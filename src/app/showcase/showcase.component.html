@@ -1,0 +1,18 @@
+<p>Insert Game name</p>
+<input type="text" (input)="setNewGameName($event)">
+<p>Insert game rate</p>
+<input type="text" (input)="setNewGameRate($event)">
+<p>Write comment</p>
+<textarea (input)="setNewGameComment($event)"></textarea>
+<div>
+	<button [disabled]="(newGameName && newGameRate && newGameComment) ? false : true" (click)="addGame(newGameName,newGameRate,newGameComment)">Добавить игрулю</button>
+	<span [class]="statusClass">{{addStatus}}</span>
+</div>
+
+<div class="game-item" *ngFor="let game of gamesList">
+	<h2>{{game.title}}</h2>
+	<strong>{{game.grade}}</strong>
+	<p>{{game.comment}}</p>
+</div>
+
+<!-- <app-showcase-item *ngFor="let game of gamesList"></app-showcase-item> -->
